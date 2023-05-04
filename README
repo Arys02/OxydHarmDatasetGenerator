@@ -1,0 +1,59 @@
+# OxydHarmonics Dataset Generator
+
+## Description
+
+Ce dépôt contient un script Python pour générer un dataset de machine learning pour le projet OxydHarmonics. Le script charge des fichiers MP3, les transforme en images spectrogrammes et les exporte ensuite sous forme de dataset CSV.
+
+Le projet OxydHarmonics a pour but d'étudier et d'analyser les caractéristiques des harmoniques dans différents types de signaux audio, et de développer des modèles de machine learning pour la reconnaissance et la classification de ces signaux.
+
+## Prérequis
+
+- Python 3.7 ou ultérieur
+- Librairies Python :
+  - librosa
+  - numpy
+  - pandas
+  - matplotlib
+
+## Installation
+
+1. Clonez ce dépôt sur votre machine locale :
+
+git clone https://github.com/votre_nom_utilisateur/oxydharmonics-dataset-generator.git
+
+
+2. Installez les dépendances nécessaires en exécutant la commande suivante dans le répertoire du projet :
+
+pip install -r requirements.txt
+
+
+## Utilisation
+
+1. Placez les fichiers MP3 que vous souhaitez analyser dans le dossier `input_audio`.
+
+2. Exécutez le script `generate_dataset.py` avec la commande suivante :
+
+python generate_dataset.py
+
+
+3. Le script analysera les fichiers audio, générera des images spectrogrammes et créera un fichier CSV contenant les données extraites.
+
+4. Vous trouverez les images spectrogrammes générées dans le dossier `output_spectrograms`, et le fichier CSV dans le dossier `output_data`.
+
+## Configuration
+
+Vous pouvez configurer certains paramètres du script en modifiant le fichier `config.py`. Les paramètres modifiables incluent :
+
+- `SAMPLE_RATE` : Taux d'échantillonnage des fichiers audio (par défaut : 22050 Hz)
+- `HOP_LENGTH` : Longueur de saut pour le calcul du spectrogramme (par défaut : 512)
+- `N_MELS` : Nombre de bandes de fréquence pour le calcul du spectrogramme (par défaut : 128)
+- `WINDOW_SIZE` : Taille de la fenêtre pour le calcul du spectrogramme (par défaut : 2048)
+- `CSV_OUTPUT_FILE` : Nom du fichier CSV de sortie (par défaut : 'dataset.csv')
+
+## Licence
+
+Ce projet est distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
+
+## Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir des issues pour signaler des bugs ou proposer des améliorations, et à soumettre des pull requests pour contribuer au projet.
