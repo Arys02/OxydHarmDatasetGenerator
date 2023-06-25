@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce dépôt contient un script Python pour générer un dataset de machine learning pour le projet OxydHarmonics. Le script charge des fichiers MP3, les transforme en images spectrogrammes et les exporte ensuite sous forme de dataset CSV.
+Ce dépôt contient un script Python pour générer un dataset de machine learning pour le projet OxydHarmonics. Le script charge des fichiers MP3 à partir de trois dossiers différents, les transforme en images spectrogrammes et les exporte ensuite sous forme de datasets CSV.
 
 Le projet OxydHarmonics a pour but d'étudier et d'analyser les caractéristiques des harmoniques dans différents types de signaux audio, et de développer des modèles de machine learning pour la reconnaissance et la classification de ces signaux.
 
@@ -12,48 +12,44 @@ Le projet OxydHarmonics a pour but d'étudier et d'analyser les caractéristique
 - Librairies Python :
   - librosa
   - numpy
-  - pandas
   - matplotlib
+  - argparse
+  - tqdm
 
 ## Installation
 
 1. Clonez ce dépôt sur votre machine locale :
 
-git clone https://github.com/votre_nom_utilisateur/oxydharmonics-dataset-generator.git
+`git clone https://github.com/votre_nom_utilisateur/oxydharmonics-dataset-generator.git`
 
 
 2. Installez les dépendances nécessaires en exécutant la commande suivante dans le répertoire du projet :
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 
 ## Utilisation
 
-1. Placez les fichiers MP3 que vous souhaitez analyser dans le dossier `input_audio`.
+1. Placez les fichiers MP3 que vous souhaitez analyser dans trois dossiers distincts.
 
-2. Exécutez le script `generate_dataset.py` avec la commande suivante :
+2. Exécutez le script `generate_dataset.py` avec les arguments appropriés. Par exemple :
 
-python generate_dataset.py
+`python generate_dataset.py --in folder1 --in2 folder2 --in3 folder3 --out output_folder --label dataset_label --duration sample_duration --image --csv --size image_size
 
 
-3. Le script analysera les fichiers audio, générera des images spectrogrammes et créera un fichier CSV contenant les données extraites.
+3. Le script analysera les fichiers audio, générera des images spectrogrammes et créera plusieurs fichiers CSV contenant les données extraites.
 
-4. Vous trouverez les images spectrogrammes générées dans le dossier `output_spectrograms`, et le fichier CSV dans le dossier `output_data`.
+4. Vous trouverez les images spectrogrammes générées et les fichiers CSV dans le dossier spécifié par l'argument `--out`.
 
 ## Configuration
 
-Vous pouvez configurer certains paramètres du script en modifiant le fichier `config.py`. Les paramètres modifiables incluent :
+Le comportement du script peut être modifié en utilisant différents arguments de ligne de commande lors de son exécution :
 
-- `SAMPLE_RATE` : Taux d'échantillonnage des fichiers audio (par défaut : 22050 Hz)
-- `HOP_LENGTH` : Longueur de saut pour le calcul du spectrogramme (par défaut : 512)
-- `N_MELS` : Nombre de bandes de fréquence pour le calcul du spectrogramme (par défaut : 128)
-- `WINDOW_SIZE` : Taille de la fenêtre pour le calcul du spectrogramme (par défaut : 2048)
-- `CSV_OUTPUT_FILE` : Nom du fichier CSV de sortie (par défaut : 'dataset.csv')
+- `--in`, `--in2`, `--in3` : Chemins vers les dossiers contenant les fichiers MP3.
+- `--out` : Chemin vers le dossier de sortie.
+- `--label` : Étiquette du dataset généré.
+- `--duration` : Durée des extraits audio à utiliser (en secondes).
+- `--image` : Si présent, le script générera des images spectrogrammes.
+- `--csv` : Si présent, le script générera des fichiers CSV.
+- `--size` : Taille des images spectrogrammes générées (les images seront carrées).
 
-## Licence
-
-Ce projet est distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
-
-## Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir des issues pour signaler des bugs ou proposer des améliorations, et à soumettre des pull requests pour contribuer au projet.
